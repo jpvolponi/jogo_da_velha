@@ -5,7 +5,7 @@ import (
 )
 
 //jogadores
-var jogador1, jogador2, linha string
+var linha string
 
 type jogador struct {
 	titulo string
@@ -18,12 +18,13 @@ func JogoDaVelha(slice [][]string) {
 	var result, vencedor string
 	jogador1 := jogador{titulo: "Jogador 1"}
 	jogador2 := jogador{titulo: "Jogador 2"}
-
-	fmt.Println("Escolha uma opção: X ou O")
+	fmt.Printf("\n\n")
+	fmt.Println("x-o-x-o-x-o-x-o-x-o-x-o-x-o-x")
+	fmt.Println("o	JOGO DA VELHA	    o")
+	fmt.Println("x-o-x-o-x-o-x-o-x-o-x-o-x-o-x")
 	Jogadores(&jogador1.time, &jogador2.time)
-	fmt.Printf("jogador1: %s\njogador2: %s\n", jogador1, jogador2)
+	fmt.Printf("\nJogador n° 1: %s\nJogador n° 2: %s\n", jogador1.time, jogador2.time)
 	ExibeJogo(slice)
-
 	for result != "VELHA" && result != "VENCEU" {
 		Jogadas(slice, jogador1)
 		result = Verify(slice)

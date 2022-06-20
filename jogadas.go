@@ -9,7 +9,7 @@ func Jogadas(slice [][]string, player jogador) {
 	//var result string
 	var coluna, linha int
 	var row string
-	fmt.Printf("\n%s(%s), baseado no quadro acima, escolha a posição de sua jogada.", player.titulo, player.time)
+	fmt.Printf("%s(%s), baseado no quadro acima, escolha a posição de sua jogada.", player.titulo, player.time)
 	fmt.Println("\n\nInforme a LINHA e a COLUNA da jogada:")
 	fmt.Scan(&row, &coluna)
 	//fmt.Println("\n\nColuna da jogada:")
