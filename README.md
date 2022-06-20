@@ -4,21 +4,21 @@ Desenvolvimento de jogo da velha em Go
 
  # Jogo da velha
 
-Criar um jogo da velha, aonde 2 jogadores participarao.
+Criar um jogo da velha, aonde 2 jogadores participarao. OK
 
-O jogo deve calcular o vencedor a qualquer momento.
+O jogo deve calcular o vencedor a qualquer momento. OK
 
-O jogo deve parar se der velha.
+O jogo deve parar se der velha. +/-
 
-Devem usar matriz e no minimo uma função recursiva.
+Devem usar matriz e no minimo uma função recursiva. MATRIZ: OK | RECURSIVA: IMPLEMENTAR
 
-Devem usar iota.
+Devem usar iota. IMPLEMENTAR
 
-Funcoes com no maximo 10 linhas. (dica)
+Funcoes com no maximo 10 linhas. (dica) TENTEI
 
 Até dia 15.
 
-Plus: solicitar qual o caracter vai ser usado pelo jogador.
+Plus: solicitar qual o caracter vai ser usado pelo jogador. OK
 
 Plus2: jogar contra a maquina.
 
