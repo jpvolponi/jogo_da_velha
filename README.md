@@ -12,7 +12,7 @@ O jogo deve parar se der velha. +/-
 
 Devem usar matriz e no minimo uma função recursiva. MATRIZ: OK | RECURSIVA: IMPLEMENTAR
 
-Devem usar iota. IMPLEMENTAR
+Devem usar iota. OK
 
 Funcoes com no maximo 10 linhas. (dica) TENTEI
 
