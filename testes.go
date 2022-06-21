@@ -24,6 +24,7 @@ func teste() {
 			}
 		}
 	}
+	fmt.Println(len(velha))
 	fmt.Println(cont)
 }
 
