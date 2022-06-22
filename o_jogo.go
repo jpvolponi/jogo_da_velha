@@ -2,46 +2,51 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
 
 //jogadores
-var jogador1, jogador2, linha string
-var coluna, row int
+var linha string
 
-var tralha = [][]string{
-	{"-", "-", "-"},
-	{"-", "-", "-"},
-	{"-", "-", "-"},
+type jogador struct {
+	titulo string
+	time   string
 }
 
-func main() {
-	fmt.Println("Escolha uma opção: X ou O")
-	Jogadores()
-	fmt.Printf("jogador1: %s\njogador2: %s\n", jogador1, jogador2)
-	fmt.Println("   0 1 2")
-	fmt.Println("A", tralha[0][:])
-	fmt.Println("B", tralha[1][:])
-	fmt.Println("C", tralha[2][:])
-	fmt.Println("\n\nEscolha a linha e a coluna da jogada:")
-	fmt.Scanln("%s", &linha)
-	fmt.Println("\n\nEscolha a linha e a coluna da jogada:")
-	fmt.Scanln("%d", &coluna)
+var tralha [][]string
 
-	//fmt.Println("\n\nEscolha a coluna da jogada:")
+func JogoDaVelha(slice [][]string) {
+	var result, vencedor string
+	jogador1 := jogador{titulo: "Jogador 1"}
+	jogador2 := jogador{titulo: "Jogador 2"}
+	fmt.Printf("\n\n")
+	//fmt.Println("x-o-x-o-x-o-x-o-x-o-x-o-x-o-x")
+	//fmt.Println("o	JOGO DA VELHA	    o")
+	//fmt.Println("x-o-x-o-x-o-x-o-x-o-x-o-x-o-x")
+	fmt.Printf(`
+	x-o-x-o-x-o-x-o-x-o-x-o-x-o-x
+	o       JOGO DA VELHA       o
+	x-o-x-o-x-o-x-o-x-o-x-o-x-o-x`)
+	fmt.Println("")
+	Jogadores(&jogador1.time, &jogador2.time)
+	fmt.Printf("\nJogador n° 1: %s\nJogador n° 2: %s\n", jogador1.time, jogador2.time)
+	ExibeJogo(slice)
 
-	switch strings.ToUpper(linha) {
-	case "A":
-		row = 0
-	case "B":
-		row = 1
-	case "C":
-		row = 2
+	for result != "VELHA" && result != "VENCEU" {
+		Jogadas(slice, jogador1)
+		result = Resultado(slice)
+		vencedor = jogador1.titulo
+		if result == "VELHA" || result == "VENCEU" {
+			continue
+		}
+		Jogadas(slice, jogador2)
+		result = Resultado(slice)
+		vencedor = jogador2.titulo
+	}
+	if result == "VELHA" {
+		vencedor = "VELHA"
+		fmt.Printf("Fim de jogo.\nNão houve vencedores nesta partida.\nO resultado do jogo é %s.", vencedor)
+	} else {
+		fmt.Printf("Fim de jogo.\nO %s venceu a partida.\nParabéns!!!!!", vencedor)
 	}
 
-	tralha[row][coluna] = jogador1
-	fmt.Println("\n   0 1 2")
-	fmt.Println("A", tralha[0][:])
-	fmt.Println("B", tralha[1][:])
-	fmt.Println("C", tralha[2][:])
 }
