@@ -4,24 +4,21 @@ import (
 	"fmt"
 )
 
-//jogadores
-var linha string
-
 type jogador struct {
 	titulo string
 	time   string
 }
 
-var tralha [][]string
-
-func JogoDaVelha(slice [][]string) {
+func JogoDaVelha() {
+	var tralha = [][]string{
+		{" ", " ", " "},
+		{" ", " ", " "},
+		{" ", " ", " "},
+	}
 	var result, vencedor string
 	jogador1 := jogador{titulo: "Jogador 1"}
 	jogador2 := jogador{titulo: "Jogador 2"}
 	fmt.Printf("\n\n")
-	//fmt.Println("x-o-x-o-x-o-x-o-x-o-x-o-x-o-x")
-	//fmt.Println("o	JOGO DA VELHA	    o")
-	//fmt.Println("x-o-x-o-x-o-x-o-x-o-x-o-x-o-x")
 	fmt.Printf(`
 	x-o-x-o-x-o-x-o-x-o-x-o-x-o-x
 	o       JOGO DA VELHA       o
@@ -29,17 +26,17 @@ func JogoDaVelha(slice [][]string) {
 	fmt.Println("")
 	Jogadores(&jogador1.time, &jogador2.time)
 	fmt.Printf("\nJogador n° 1: %s\nJogador n° 2: %s\n", jogador1.time, jogador2.time)
-	ExibeJogo(slice)
+	ExibeJogo(tralha)
 
 	for result != "VELHA" && result != "VENCEU" {
-		Jogadas(slice, jogador1)
-		result = Resultado(slice)
+		Jogadas(tralha, jogador1)
+		result = Resultado(tralha)
 		vencedor = jogador1.titulo
 		if result == "VELHA" || result == "VENCEU" {
 			continue
 		}
-		Jogadas(slice, jogador2)
-		result = Resultado(slice)
+		Jogadas(tralha, jogador2)
+		result = Resultado(tralha)
 		vencedor = jogador2.titulo
 	}
 	if result == "VELHA" {

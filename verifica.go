@@ -7,7 +7,7 @@ func Horizontal(slice [][]string) bool {
 }
 
 func Diagonal(slice [][]string) bool {
-	return ((slice[0][0] == slice[0][1] && slice[0][0] == slice[0][2]) && slice[0][0] != " ") ||
+	return ((slice[0][0] == slice[1][1] && slice[0][0] == slice[2][2]) && slice[0][0] != " ") ||
 		((slice[0][2] == slice[1][1] && slice[0][2] == slice[2][0]) && slice[0][2] != " ")
 }
 
@@ -26,7 +26,7 @@ func testeVazio(slice [][]string) bool {
 			}
 		}
 	}
-	return testeVazio == len(slice)*len(slice)
+	return testeVazio == (len(slice)*len(slice)-1) || testeVazio == (len(slice)*len(slice))
 }
 
 func Resultado(slice [][]string) string {
