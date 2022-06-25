@@ -8,5 +8,5 @@ var grid = [][]string{
 
 func main() {
 
-	JogoDaVelha(grid)
+	JogoDaVelha()
 }
