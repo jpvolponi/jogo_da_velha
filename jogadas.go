@@ -22,7 +22,7 @@ func Jogadas(slice [][]string, player jogador) {
 	if slice[linha][coluna] == " " {
 		slice[linha][coluna] = player.time
 	} else {
-		fmt.Println("Posição indisponível!")
+		fmt.Printf("\nPosição indisponível!\n\n")
 		Jogadas(slice, player)
 	}
 
